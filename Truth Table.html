@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Truth Table Project by Kajal</title>
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+      text-align: center;
+      padding: 30px;
+    }
+
+    h1 {
+      color: #0d47a1;
+      font-size: 2.4em;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px #90caf9;
+    }
+
+    select, button {
+      padding: 10px 15px;
+      font-size: 16px;
+      margin: 10px;
+      border-radius: 8px;
+      border: 2px solid #1976d2;
+      background-color: #ffffff;
+      cursor: pointer;
+    }
+
+    button {
+      background-color: #1976d2;
+      color: white;
+      transition: 0.3s;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #0d47a1;
+    }
+
+    table {
+      width: 60%;
+      margin: 25px auto;
+      border-collapse: collapse;
+      background-color: #ffffff;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+
+    th, td {
+      border: 1px solid #1976d2;
+      padding: 10px;
+      font-size: 18px;
+    }
+
+    th {
+      background-color: #1976d2;
+      color: white;
+    }
+
+    .explanation {
+      background-color: #e3f2fd;
+      border-left: 6px solid #1976d2;
+      width: 60%;
+      margin: 15px auto;
+      padding: 15px;
+      text-align: left;
+      font-size: 16px;
+      color: #0d47a1;
+      border-radius: 8px;
+      font-style: italic;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    }
+
+    .highlight {
+      margin-top: 40px;
+      font-size: 18px;
+      color: #0d47a1;
+      line-height: 1.8;
+      font-weight: 500;
+    }
+
+    .highlight b {
+      color: #1a237e;
+      font-size: 19px;
+    }
+
+    footer {
+      margin-top: 35px;
+      font-size: 16px;
+      color: #0d47a1;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>💡 Truth Table Generator Project</h1>
+  <p>Select a logical operator and click "Generate Table" 👇</p>
+
+  <select id="operator">
+    <option value="AND">AND</option>
+    <option value="OR">OR</option>
+    <option value="NOT">NOT</option>
+  </select>
+
+  <button onclick="generateTable()">Generate Table</button>
+
+  <div id="tableContainer"></div>
+  <div id="explanationContainer"></div>
+
+  <div class="highlight">
+    <b>Concept:</b> Truth Table & Logical Operators <br>
+    <b>Subject:</b> Computer Science (Logic Gates & Boolean Algebra) <br>
+    <b>Teacher:</b> Miss Harshita Mistry (Senior Software Engineer, Oracle) <br>
+    <b>Organized By:</b> Code to Enhance Learning (CEL) <br>
+    <b>Created By:</b> Kajal
+  </div>
+
+  <footer>✨ Code to Enhance Learning | Truth Table Masterclass ✨</footer>
+
+  <script>
+    function generateTable() {
+      const op = document.getElementById("operator").value;
+      let tableHTML = "<table><tr><th>A</th>";
+
+      if (op !== "NOT") {
+        tableHTML += "<th>B</th>";
+      }
+
+      tableHTML += "<th>Output (" + op + ")</th></tr>";
+
+      let explanationText = "";
+
+      if (op === "AND") {
+        const rows = [
+          [0, 0, 0],
+          [0, 1, 0],
+          [1, 0, 0],
+          [1, 1, 1]
+        ];
+        rows.forEach(r => {
+          tableHTML += "<tr><td>" + r[0] + "</td><td>" + r[1] + "</td><td>" + r[2] + "</td></tr>";
+        });
+        explanationText = "👉 In AND operation, the output is TRUE (1) only when both inputs A and B are TRUE.";
+      }
+
+      else if (op === "OR") {
+        const rows = [
+          [0, 0, 0],
+          [0, 1, 1],
+          [1, 0, 1],
+          [1, 1, 1]
+        ];
+        rows.forEach(r => {
+          tableHTML += "<tr><td>" + r[0] + "</td><td>" + r[1] + "</td><td>" + r[2] + "</td></tr>";
+        });
+        explanationText = "👉 In OR operation, the output is TRUE (1) if at least one input is TRUE.";
+      }
+
+      else if (op === "NOT") {
+        const rows = [
+          [0, 1],
+          [1, 0]
+        ];
+        rows.forEach(r => {
+          tableHTML += "<tr><td>" + r[0] + "</td><td>" + r[1] + "</td></tr>";
+        });
+        explanationText = "👉 The NOT operation inverts the input. 1 becomes 0 and 0 becomes 1.";
+      }
+
+      tableHTML += "</table>";
+      document.getElementById("tableContainer").innerHTML = tableHTML;
+      document.getElementById("explanationContainer").innerHTML =
+        "<div class='explanation'><b>Explanation:</b> " + explanationText + "</div>";
+    }
+  </script>
+</body>
+</html>
