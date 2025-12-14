@@ -1,0 +1,21 @@
+!DOCTYPE html<html>
+<body>
+<label > type number</label><br>
+<input id="n1" placeholder="First number"><br>
+<label >type 2nd number</label><br>
+<input id="n2" placeholder="Second number"><br>
+<button onclick="hcf()">Find HCF</button><br>
+
+<p id="result"></p>
+
+<script>
+function hcf() {
+    let a = n1.value, b = n2.value, h = 1;
+    for (let i = 1; i <= a && i <= b; i++)
+        if (a % i == 0 && b % i == 0) h = i;
+    result.innerHTML = "HCF of " + a + " and " + b + " is " + h;
+}
+</script>
+
+</body>
+</html>
