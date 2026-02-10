@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Code to Enhance Learning</title>
+
+<style>
+body{
+    font-family: Arial;
+    margin:0;
+    background: linear-gradient(120deg,#74ebd5,#acb6e5);
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:20px;
+    text-align:center;
+    background:white;
+    border-radius:15px;
+}
+
+.main-heading{
+    color:#0b3d91;
+    background:#e3f2fd;
+    padding:15px;
+    border-radius:10px;
+}
+
+.line{
+    height:3px;
+    background:#0b3d91;
+    width:60%;
+    margin:10px auto 20px;
+}
+
+.box{
+    background:#f1f8ff;
+    padding:20px;
+    margin:20px 0;
+    border-radius:10px;
+}
+
+.formula{
+    background:#e8f5e9;
+    margin:8px;
+    padding:10px;
+    border-radius:8px;
+    font-weight:bold;
+}
+
+input{
+    padding:8px;
+    margin:5px;
+    width:80px;
+}
+
+button{
+    padding:10px 15px;
+    background:#0b3d91;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.appliance{
+    margin:10px 0;
+}
+
+.footer{
+    font-weight:bold;
+    margin-top:20px;
+}
+</style>
+
+<script>
+function calculateBill(){
+    let days = document.getElementById("days").value;
+    let rate = document.getElementById("rate").value;
+
+    function calc(power, qty, hours){
+        return (power * qty * hours * days) / 1000;
+    }
+
+    let fanUnits = calc(
+        fanPower.value, fanQty.value, fanHours.value
+    );
+
+    let bulbUnits = calc(
+        bulbPower.value, bulbQty.value, bulbHours.value
+    );
+
+    let tvUnits = calc(
+        tvPower.value, tvQty.value, tvHours.value
+    );
+
+    let fridgeUnits = calc(
+        fridgePower.value, fridgeQty.value, fridgeHours.value
+    );
+
+    let totalUnits =
+        fanUnits + bulbUnits + tvUnits + fridgeUnits;
+
+    let bill = totalUnits * rate;
+
+    document.getElementById("units").innerHTML =
+        "एकूण वापर: " + totalUnits.toFixed(2) + " Units";
+
+    document.getElementById("bill").innerHTML =
+        "अंदाजे बिल: ₹ " + bill.toFixed(2);
+}
+</script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1 class="main-heading">CODE TO ENHANCE LEARNING</h1>
+<div class="line"></div>
+
+<div class="box">
+<h2>मास्टर क्लास – इलेक्ट्रिसिटी</h2>
+<p>
+रजनी अग्रवाल मॅडम यांच्या मास्टर क्लासमध्ये वीज वापर,
+युनिट काढणे व बिल तयार करणे शिकायला मिळाले.
+</p>
+</div>
+
+<div class="box">
+<h2>मूलभूत संकल्पना</h2>
+<p>व्होल्ट – विद्युत दाब</p>
+<p>करंट – प्रवाह</p>
+<p>रेसिस्टन्स – विरोध</p>
+<p>पॉवर – ऊर्जा वापर</p>
+</div>
+
+<div class="box">
+<h2>महत्त्वाची सूत्रे</h2>
+
+<div class="formula">
+Power = Voltage × Current
+</div>
+
+<div class="formula">
+Energy = Power × Time ÷ 1000
+</div>
+
+</div>
+
+<div class="box">
+<h2>वीज बिल कॅल्क्युलेटर</h2>
+
+<div class="appliance">
+Fan: Power <input id="fanPower" value="75">
+Qty <input id="fanQty" value="1">
+Hours <input id="fanHours" value="5">
+</div>
+
+<div class="appliance">
+Bulb: Power <input id="bulbPower" value="9">
+Qty <input id="bulbQty" value="2">
+Hours <input id="bulbHours" value="5">
+</div>
+
+<div class="appliance">
+TV: Power <input id="tvPower" value="100">
+Qty <input id="tvQty" value="1">
+Hours <input id="tvHours" value="4">
+</div>
+
+<div class="appliance">
+Fridge: Power <input id="fridgePower" value="150">
+Qty <input id="fridgeQty" value="1">
+Hours <input id="fridgeHours" value="24">
+</div>
+
+<br>
+Days: <input id="days" value="30">
+Rate/unit: <input id="rate" value="6">
+
+<br><br>
+<button onclick="calculateBill()">बिल काढा</button>
+
+<p id="units"></p>
+<p id="bill"></p>
+
+</div>
+
+<div class="box">
+<h2>माझा अनुभव</h2>
+<p>
+या मास्टर क्लासमुळे वीज वापर आणि बिल कसे काढायचे हे समजले.
+आता वीज वाचवण्याची जाणीव झाली.
+</p>
+</div>
+
+<div class="footer">
+Created by Kajal
+</div>
+
+</div>
+
+</body>
+</html>
