@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Garbage Problem in Pune – Project 1</title>
+<style>
+body {font-family:Arial;background:hsl(23,85%,92%);text-align:center;}
+button {padding:10px 18px;margin:5px;background:hsl(23,70%,45%);color:white;border:none;border-radius:8px;}
+.section {display:none;background:white;margin:20px auto;padding:20px;width:75%;border-radius:15px;}
+h1,h2 {color:hsl(23,80%,30%);}
+img {width:280px;border-radius:10px;margin-top:10px;}
+</style>
+</head>
+<body>
+
+<h1>Garbage Problem in Pune – Project 1</h1>
+<button onclick="show('p')">Problem</button>
+<button onclick="show('s')">Solutions</button>
+<button onclick="show('m')">Made By</button>
+
+<div id="p" class="section">
+<h2>Problem</h2>
+<p>This project explains the topic: Garbage Problem in Pune – Project 1.</p>
+<p>This issue is important for students and citizens of Pune.</p>
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/3d/Water_pollution.jpg">
+</div>
+
+<div id="s" class="section">
+<h2>Solutions</h2>
+<ul style="text-align:left;">
+<li>Students should learn good habits.</li><li>People should follow rules and awareness.</li><li>Together we can improve our city.</li>
+</ul>
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/3d/Water_pollution.jpg">
+</div>
+
+<div id="m" class="section">
+<h2>Made By</h2>
+<p>Student Name</p>
+<p>Location: Pune</p>
+<p>Class: Primary</p>
+</div>
+
+<script>
+function show(id){
+['p','s','m'].forEach(x=>document.getElementById(x).style.display='none');
+document.getElementById(id).style.display='block';
+}
+</script>
+</body>
+</html>
