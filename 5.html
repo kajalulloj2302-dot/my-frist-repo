@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<body style="text-align:center; font-size:30px;">
+
+<h2>Clock</h2>
+<p id="clock"></p>
+
+<script>
+setInterval(()=>{
+let d = new Date();
+clock.innerHTML = d.toLocaleTimeString();
+},1000);
+</script>
+
+</body>
+</html>
